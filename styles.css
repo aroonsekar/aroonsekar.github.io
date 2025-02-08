@@ -4,7 +4,7 @@
 /* Include custom font Distrampler */
 @font-face {
     font-family: 'Distrampler';
-    src: url('./fonts/distrampler.ttf');
+    src: url('/fonts/Distrampler.ttf');
 }
 
 /* General reset and styling */
