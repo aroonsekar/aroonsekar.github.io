@@ -184,7 +184,7 @@ footer {
 .footer-content {
     display: flex;
     justify-content: center;
-    padding: 10px 0;
+    padding:0px 0;
     background-color: #ffffff;
     width: 80%;
 }
@@ -236,15 +236,24 @@ footer p {
 @media (max-width: 480px) {
     a {
         text-decoration: none;
-        color: #333;
+        color: #000000;
     }
-    
+
+   
     header {
         flex-direction: column;
         align-items: center;
     }
 
     .footer-content {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .footer-content.footer-content.night-mode {
         display: flex;
         flex-direction: column;
         text-align: center;
@@ -340,8 +349,15 @@ footer p {
     #night-mode-toggle:hover {
         background-color: #555;
     }
-    
+
+    a.night-mode{
+        color:#fff;
+    }
+
+
 }
+    
+
 
 
 #night-mode-toggle {

@@ -152,11 +152,23 @@ createBoard();
 const nightModeToggle = document.getElementById('night-mode-toggle');
 const body = document.body;
 
+nightModeToggle.addEventListener('click', () => {
+   // Toggle dark mode class on body
+
+   // Change button text depending on current state
+   if (nightModeToggle.textContent === 'Dark Mode') {
+    nightModeToggle.textContent = 'Light Mode';
+   } else {
+    nightModeToggle.textContent = 'Dark Mode';
+   }
+ });
+
 function toggleNightMode() {
     body.classList.toggle('night-mode');
     document.querySelector('header').classList.toggle('night-mode');
     document.querySelector('footer').classList.toggle('night-mode');
     document.querySelector('p').classList.toggle('night-mode');
+
 
     // Select all contact-link elements and toggle night-mode class
     document.querySelectorAll('.contact-link').forEach(link => {
@@ -177,6 +189,9 @@ function toggleNightMode() {
         content.classList.toggle('night-mode');
     });
     document.querySelectorAll('.footer-content').forEach(content => {
+        content.classList.toggle('night-mode');
+    });
+    document.querySelectorAll('.left-section').forEach(content => {
         content.classList.toggle('night-mode');
     });
     document.querySelectorAll('#page-size').forEach(content => {
