@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <title>Arun Sekar</title>
+</head>
+<body>
+    <header>
+        <div class="contact-info">
+            <a href="https://www.linkedin.com/in/arunkumarsekar/" class="contact-link">LinkedIn</a> |
+            <a href="https://www.instagram.com/arunsmiracle/" class="contact-link">Instagram</a>  |
+            <a href="https://github.com/aroon-sekar" class="contact-link">GitHub</a>
+        </div>
+        <div class="location-info">
+            NEWCASTLE UPON TYNE | UNITED KINGDOM
+            <button id="night-mode-toggle">Dark Mode</button>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <!-- Left Section (Profile and Accordion) -->
+            <div class="left-section">
+                <h1>ARUN SEKAR</h1>
+                <h2>Designer / Developer</h2>
+                <p>Hello, I am currently a Master's student at Northumbria University, Newcastle-upon-Tyne</p>
+
+                <!-- Portfolio Accordion Section -->
+                 
+                <section class="accordion">
+                    
+                    <div class="accordion-item">
+                        <button class="accordion-button">NWL Virtual Newcastle Gateshead - Northumbrian Water Limited<span>+</span></button>
+                        <div class="accordion-content">
+                            <p>Data Management, MS Office Suite, Unreal Engine, 3DS Max</p>
+                            <p>For the Advanced Practice Semester, worked on a project with “Northumbrian Water Ltd (NWL)” to explore the viability of simulations on virtual city models to 
+                                estimate the impact of floods in water systems operations. Used Unreal Engine to simulate a flood situation in the Newcastle Quayside area and developed  
+                                a game concept for better understanding of environmental risks. This project also involves in project management which requires exceptional leadership,  
+                                organisational, team-coordination, time management, presentation and communication skills. </p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-button"> TOONELAND – An events booking Website <span>+</span></button>
+                        <div class="accordion-content">
+                            <p>HTML, CSS, JavaScript, PHP, Figma</p>
+                            <p>Designed and developed a fully functional Dynamic website using HTML, CSS, JavaScript and PHP for server-side programming. The Design phase was done in 
+                                Figma which was later developed using the above-mentioned web-development tools. The website comprises of features for user registration and login, ability
+                                  to book and manipulate bookings, sessions dedicated for the users, security measures against SQL-injection, cross-site scripting are also employed.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-button"> SUDOKU <span>+</span></button>
+                        <div class="accordion-content">
+                            <p>Java, Swing API, Figma, OOPs</p>
+                            <p>As a part of the assessment for the module “Object Oriented Programming”, developed a SUDOKU game from the partial code provided. The game was developed
+                                  with the Object-Oriented Programming concepts in JAVA. The Game has both Text-based UI and a Graphical UI. Designed the Graphical UI in Figma 
+                                 and developed in JAVA using Swing API. The assessment also included various testing methods that are used for debugging.
+                                 The project underscores the skills in software development lifecycle management and problem-solving within both theoretical and real-world contexts.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-button"> TheUnblog.in <span>+</span></button>
+                        <div class="accordion-content">
+                            <p>Wordpress, HTML, CSS, Android Studio, JAVA</p>
+                            <p>A travel, food, lifestyle and tech blog is a hobby project designed with Wordpress and customized using HTML, CSS.
+                                The Android application is a WebView app of the website “theunblog.in” developed in JAVA using Android Studio.</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Right Section (Tic-Tac-Toe Game) -->
+            <div class="right-section">
+                <section id="tic-tac-toe">
+                    <h1>Bored?</h1>
+                    <h2>Tic-Tac-Toe</h2>
+                    <div id="board"></div>
+                    <div id="message"></div>
+                    <button id="play-again" onclick="resetGame()">Play Again</button>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-content">
+            <p id="page-size">Page Size: Calculating...</p>
+            <p id="created-by">Created by Arun with ChatGPT.</p>
+            <p id="current-time"></p>
+        </div>
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>

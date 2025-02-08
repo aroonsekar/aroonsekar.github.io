@@ -1,0 +1,410 @@
+/* Include Google Font Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+/* Include custom font Distrampler */
+@font-face {
+    font-family: 'Distrampler';
+    src: url('C:/Users/aruns/Desktop/Portfolio/fonts/distrampler.ttf');
+}
+
+/* General reset and styling */
+body, h1, h2, h3, p, button {
+    margin: 0;
+    padding: 0;
+    font-family: 'Distrampler', sans-serif, 'Times New Roman', Times, serif;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+/* Header styling */
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+    align-items: center;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+.location-info {
+    font-size: 14px;
+    color: #666;
+}
+
+.contact-link{
+    color: #666;
+}
+
+/* Main content styling */
+main {
+    flex: 1;
+    padding: 20px 0;
+}
+
+.container {
+    align-items: flex-start;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* Left Section (Profile and Accordion) */
+.left-section {
+    display: flex;
+    flex: 2;
+    margin-left: 4em;
+    align-content: center;
+    flex-direction: column;
+    margin-top: 2em;
+    margin-right: 4em;
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+/* Accordion Section Styling */
+.accordion {
+    margin-top: 20px;
+}
+
+.accordion-item {
+    border-top: 1px solid #ccc;
+}
+
+.accordion-button {
+    width: 100%;
+    text-align: left;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #ffffff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.accordion-button:hover {
+    background-color: #e9e9e9;
+}
+
+.accordion-content {
+    display: none;
+    padding: 15px;
+    background-color: #fff;
+    transition: max-height 0.3s ease-out;
+}
+
+.accordion-content.show {
+    display: block;
+}
+
+/* Right Section (Tic-Tac-Toe Game) */
+.right-section {
+    flex: 1;
+    border-left: 1px solid #ccc;
+    padding-left: 20px;
+    display: flex;
+    justify-content: center;
+    margin-top: 2em;
+}
+
+#tic-tac-toe h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+#board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-gap: 5px;
+    margin-top: 20px;
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    border: 1px solid #000;
+}
+
+#message {
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+#play-again {
+    display: none;
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+/* Footer Styling */
+footer {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    border-top: 1px solid #ffffff;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    background-color: #ffffff;
+    width: 80%;
+}
+
+footer p {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+}
+
+
+
+#page-size {
+    text-align: left;
+    
+}
+
+#created-by {
+    text-align: center;
+    flex-grow: 1;
+   
+}
+
+#current-time {
+    font-weight: bold;
+    text-align: left;
+}
+
+
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .left-section, .right-section {
+        flex: none;
+        margin: 0;
+    }
+
+    .right-section {
+        border-left: none;
+        padding-left: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-content {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        width: 100%;
+    }
+    
+
+    .contact-info, .location-info {
+        font-size: 12px;
+        text-align: center;
+    }
+
+    .container {
+        gap: 5px;
+    }
+
+    .left-section {
+        align-items: center;
+        margin: 0;
+    }
+
+    .right-section {
+        display: flex;
+        align-self: center;
+        border-left: none;
+        padding-left: 0;
+        padding-top: 2em;
+        padding-bottom: 4em;
+    }
+
+    #tic-tac-toe {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+
+
+    h1 {
+        font-size: 28px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    .accordion-button {
+        font-size: 16px;
+    }
+
+    #board {
+        grid-template-columns: repeat(3, 80px);
+    }
+
+    .cell {
+        width: 80px;
+        height: 80px;
+        font-size: 20px;
+    }
+
+    #message {
+        font-size: 18px;
+    }
+
+    #play-again {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    footer {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+
+#night-mode-toggle {
+    margin-left: 20px;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+}
+
+#night-mode-toggle:hover {
+    background-color: #555;
+}
+
+
+/* Night Mode */
+body.night-mode {
+    background-color: #1e1e1e;
+    color: white;
+}
+
+ footer.night-mode {
+    background-color: #1e1e1e;
+    color: white;
+}
+
+.contact-info.night-mode, .location-info.night-mode {
+    color: #ffffff;
+}
+
+a.night-mode {
+    color: white;
+}
+
+.project.night-mode {
+    background-color: #333;
+    border: 1px solid white;
+}
+
+.tic-tac-toe div.night-mode {
+    border: 2px solid white;
+}
+
+.footer-content.night-mode {
+    background-color: #1e1e1e;
+    color: white;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    width: 80%;
+}
+
+footer p.night-mode {
+    color: #ffffff;
+}
+
+.contact-link.night-mode {
+    color: #ffffff;
+}
+
+button.night-mode {
+    background-color: #333;
+    color: white;
+    border: 1px solid white;
+}
+
+button.night-mode:hover {
+    background-color: #444;
+}
+
+.accordion-button.night-mode {
+    background-color: #444;
+    color: white;
+    border-color: #555;
+}
+
+.accordion-content.night-mode {
+    background-color: #222;
+}
+
+.cell.night-mode {
+    color: white;
+    border-color: #888;
+}
+
+
