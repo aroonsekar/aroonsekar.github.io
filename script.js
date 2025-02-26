@@ -203,7 +203,34 @@ function toggleNightMode() {
     document.querySelectorAll('#current-time').forEach(content => {
         content.classList.toggle('night-mode');
     });
+    document.querySelectorAll('#night-mode-toggle').forEach(content => {
+        content.classList.toggle('night-mode');
+    });
+    document.querySelectorAll('.timeline-dot').forEach(content => {
+        content.classList.toggle('night-mode');
+    });
+    document.querySelectorAll('.timeline-container::before').forEach(content => {
+        content.classList.toggle('night-mode');
+    });
+    document.querySelectorAll('.timeline-heading').forEach(content => {
+        content.classList.toggle('night-mode');
+    });
+    document.querySelectorAll('.timeline-details').forEach(content => {
+        content.classList.toggle('night-mode');
+    });
 }
 
 // Event listener for the night mode button
 nightModeToggle.addEventListener('click', toggleNightMode);
+
+
+/* ==============================
+   TIMELINE: TOGGLE DETAILS
+============================== */
+const timelineHeadings = document.querySelectorAll('.timeline-heading');
+timelineHeadings.forEach(heading => {
+    heading.addEventListener('click', () => {
+        const details = heading.nextElementSibling; 
+        details.classList.toggle('active');
+    });
+});
