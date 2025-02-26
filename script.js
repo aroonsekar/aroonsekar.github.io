@@ -147,35 +147,86 @@ function resetGame() {
 }
 
 createBoard();
-
-// JavaScript for Night Mode Toggle
+/* ================================
+   DARK/LIGHT MODE GLOW ANIMATION
+================================ */
 const nightModeToggle = document.getElementById('night-mode-toggle');
 const body = document.body;
 
+// The overlay divs for glows -- must match your HTML IDs
+const darkGlow = document.getElementById('dark-glow');
+const lightGlow = document.getElementById('light-glow');
+
+// When we click the toggle, figure out if we're going from Light->Dark or Dark->Light
 nightModeToggle.addEventListener('click', () => {
-   // Toggle dark mode class on body
+    const goingDark = (nightModeToggle.textContent === 'I am Batman');
 
-   // Change button text depending on current state
-   if (nightModeToggle.textContent === 'Dark Mode') {
-    nightModeToggle.textContent = 'Light Mode';
-   } else {
-    nightModeToggle.textContent = 'Dark Mode';
-   }
- });
+    // 1) Update button text
+    if (goingDark) {
+        nightModeToggle.textContent = 'Let there be light';
+    } else {
+        nightModeToggle.textContent = 'I am Batman';
+    }
 
+    // 2) Trigger the correct glow effect
+    triggerGlow(goingDark);
+
+    // 3) Toggle night mode classes
+    toggleNightMode();
+});
+
+/**
+ * Triggers a radial gradient glow from the button's position.
+ * goingDark = true => use #dark-glow
+ * goingDark = false => use #light-glow
+ */
+function triggerGlow(goingDark) {
+    // 1) Get the button's x/y position
+    const btnRect = nightModeToggle.getBoundingClientRect();
+    const centerX = btnRect.left + btnRect.width / 2;
+    const centerY = btnRect.top + btnRect.height / 2;
+
+    // 2) Decide which overlay to use
+    const overlay = goingDark ? darkGlow : lightGlow;
+
+    // 3) Build a radial gradient centered on (centerX, centerY)
+    // We'll use window.scrollX / scrollY in case the button is not at top-left
+    const pageX = centerX + window.scrollX;
+    const pageY = centerY + window.scrollY;
+
+    if (goingDark) {
+      // black/dark glow
+      overlay.style.background = `radial-gradient(circle at ${pageX}px ${pageY}px, rgba(0,0,0,1) 100%, transparent 100%)`;
+    } else {
+      // white glow
+      overlay.style.background = `radial-gradient(circle at ${pageX}px ${pageY}px, rgba(255,255,255,1) 100%, transparent 100%)`;
+    }
+
+    // 4) Activate it by toggling the "glow-active" class
+    // First remove the class so we can re-trigger from scratch
+    overlay.classList.remove('glow-active');
+    void overlay.offsetWidth; // force a reflow
+    overlay.classList.add('glow-active');
+
+    // 5) Optional: remove the glow after some time
+    setTimeout(() => {
+        overlay.classList.remove('glow-active');
+    }, 1000);
+}
+
+// Our usual function that toggles the .night-mode classes
 function toggleNightMode() {
     body.classList.toggle('night-mode');
     document.querySelector('header').classList.toggle('night-mode');
     document.querySelector('footer').classList.toggle('night-mode');
     document.querySelector('p').classList.toggle('night-mode');
 
-
-    // Select all contact-link elements and toggle night-mode class
+    // contact-link
     document.querySelectorAll('.contact-link').forEach(link => {
         link.classList.toggle('night-mode');
     });
-
-    // Toggle class for elements with the 'night-mode' styles
+    
+    // accordion
     document.querySelectorAll('.accordion-button').forEach(button => {
         button.classList.toggle('night-mode');
     });
@@ -209,9 +260,6 @@ function toggleNightMode() {
     document.querySelectorAll('.timeline-dot').forEach(content => {
         content.classList.toggle('night-mode');
     });
-    document.querySelectorAll('.timeline-container::before').forEach(content => {
-        content.classList.toggle('night-mode');
-    });
     document.querySelectorAll('.timeline-heading').forEach(content => {
         content.classList.toggle('night-mode');
     });
@@ -219,10 +267,6 @@ function toggleNightMode() {
         content.classList.toggle('night-mode');
     });
 }
-
-// Event listener for the night mode button
-nightModeToggle.addEventListener('click', toggleNightMode);
-
 
 /* ==============================
    TIMELINE: TOGGLE DETAILS

@@ -188,9 +188,10 @@ footer {
     display: flex;
     justify-content: center;
     padding: 10px 0;
-    border-top: 1px solid #ffffff;
+    border-top: 1px solid #1E1E1E;
     bottom: 0;
     width: 100%;
+
 }
 
 .footer-content {
@@ -402,6 +403,9 @@ body.night-mode {
  footer.night-mode {
     background-color: #1e1e1e;
     color: white;
+    border-top: 1px solid #ffffff;
+    bottom: 0;
+    width: 100%;
 }
 
 .contact-info.night-mode, .location-info.night-mode {
@@ -498,6 +502,7 @@ button.night-mode:hover {
     height: 100%;
     background-color: #555;
 }
+
 
 .timeline-container::before.night-mode {
     content: "";
@@ -603,4 +608,29 @@ button.night-mode:hover {
     margin-top: 0.5rem;
 }
 
+/* =========================================
+   DARK & LIGHT GLOW OVERLAYS
+========================================= */
+#dark-glow, 
+#light-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;  /* ignore clicks */
+  z-index: 9999;
+  opacity: 0;
+  transform: scale(0);
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
 
+/* We'll dynamically set the background in JS 
+   so the radial gradient is centered at the button's position. */
+
+/* When the overlay is 'active', it expands to fill the screen. */
+#dark-glow.glow-active,
+#light-glow.glow-active {
+  transform: scale(4);
+  opacity: 10;
+}
