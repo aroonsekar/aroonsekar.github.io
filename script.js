@@ -105,9 +105,25 @@ function handleClick(event) {
 }
 
 function computerMove() {
-    let emptyCells = cells.filter(cell => cell.innerHTML === '');
-    let randomCell = emptyCells[Math.floor(Math.random() * emptyCells.length)];
-    randomCell.innerHTML = 'O';
+    let bestScore = -Infinity;
+    let move;
+
+    for (let i = 0; i < cells.length; i++) {
+        if (cells[i].innerHTML === '') {
+            cells[i].innerHTML = 'O';
+            let score = minimax(cells, 0, false);
+            cells[i].innerHTML = '';
+            if (score > bestScore) {
+                bestScore = score;
+                move = i;
+            }
+        }
+    }
+
+    if (move !== undefined) {
+        cells[move].innerHTML = 'O';
+    }
+
     if (checkWin('O')) {
         gameActive = false;
         message.innerHTML = 'Computer wins!';
@@ -120,6 +136,7 @@ function computerMove() {
         currentPlayer = 'X';
     }
 }
+
 
 function checkWin(player) {
     const winPatterns = [
@@ -137,6 +154,56 @@ function checkWin(player) {
         return pattern.every(index => cells[index].innerHTML === player);
     });
 }
+
+function checkWinState(player, boardState) {
+    const winPatterns = [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+        [0, 4, 8],
+        [2, 4, 6]
+    ];
+
+    return winPatterns.some(pattern => {
+        return pattern.every(index => boardState[index].innerHTML === player);
+    });
+}
+
+
+function minimax(boardState, depth, isMaximizing) {
+    if (checkWinState('O', boardState)) return 10 - depth;
+    if (checkWinState('X', boardState)) return depth - 10;
+    if (boardState.every(cell => cell.innerHTML !== '')) return 0;
+
+    if (isMaximizing) {
+        let bestScore = -Infinity;
+        for (let i = 0; i < boardState.length; i++) {
+            if (boardState[i].innerHTML === '') {
+                boardState[i].innerHTML = 'O';
+                let score = minimax(boardState, depth + 1, false);
+                boardState[i].innerHTML = '';
+                bestScore = Math.max(score, bestScore);
+            }
+        }
+        return bestScore;
+    } else {
+        let bestScore = Infinity;
+        for (let i = 0; i < boardState.length; i++) {
+            if (boardState[i].innerHTML === '') {
+                boardState[i].innerHTML = 'X';
+                let score = minimax(boardState, depth + 1, true);
+                boardState[i].innerHTML = '';
+                bestScore = Math.min(score, bestScore);
+            }
+        }
+        return bestScore;
+    }
+}
+
+
 
 function resetGame() {
     cells.forEach(cell => cell.innerHTML = '');
