@@ -348,3 +348,4 @@ timelineHeadings.forEach(heading => {
         details.classList.toggle('active');
     });
 });
+if (typeof module !== 'undefined') { module.exports = { checkWin, minimax, cells }; }
