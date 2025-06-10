@@ -286,7 +286,10 @@ function toggleNightMode() {
     body.classList.toggle('night-mode');
     document.querySelector('header').classList.toggle('night-mode');
     document.querySelector('footer').classList.toggle('night-mode');
-    document.querySelector('p').classList.toggle('night-mode');
+    // Toggle night-mode class on every paragraph
+    document.querySelectorAll('p').forEach(p => {
+        p.classList.toggle('night-mode');
+    });
 
     // contact-link
     document.querySelectorAll('.contact-link').forEach(link => {
