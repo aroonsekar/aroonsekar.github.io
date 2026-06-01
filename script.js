@@ -70,9 +70,25 @@ window.addEventListener('load', updatePageSize);
 const board = document.getElementById('board');
 const message = document.getElementById('message');
 const playAgainButton = document.getElementById('play-again');
+const diffHint = document.getElementById('diff-hint');
 let cells = [];
 let currentPlayer = 'X';
 let gameActive = true;
+let currentDifficulty = 'medium';
+
+const DIFF_HINTS = {
+    easy:   'go on, you\'ve got this one',
+    medium: 'pick a level and try your luck',
+    hard:   'good luck. you\'ll need it :)',
+};
+
+function setDifficulty(level) {
+    currentDifficulty = level;
+    document.querySelectorAll('.diff-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('diff-' + level).classList.add('active');
+    if (diffHint) diffHint.textContent = DIFF_HINTS[level];
+    resetGame();
+}
 
 function createBoard() {
     for (let i = 0; i < 9; i++) {
@@ -86,43 +102,72 @@ function createBoard() {
 
 function handleClick(event) {
     if (!gameActive || event.target.innerHTML !== '') return;
-
     event.target.innerHTML = currentPlayer;
     if (checkWin(currentPlayer)) {
         gameActive = false;
-        message.innerHTML = currentPlayer === 'X' ? 'You win!' : 'Computer wins!';
+        message.innerHTML = currentPlayer === 'X' ? 'You win! 🎉' : 'Computer wins!';
         playAgainButton.style.display = 'block';
     } else if (cells.every(cell => cell.innerHTML !== '')) {
         gameActive = false;
-        message.innerHTML = 'It\'s a draw!';
+        message.innerHTML = "It\'s a draw!";
         playAgainButton.style.display = 'block';
     } else {
-        currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
-        if (currentPlayer === 'O') {
-            computerMove();
-        }
+        currentPlayer = 'O';
+        computerMove();
     }
 }
 
-function computerMove() {
-    let bestScore = -Infinity;
-    let move;
+// Easy: pure random
+function easyMove() {
+    const available = cells.filter(c => c.innerHTML === '');
+    if (!available.length) return;
+    available[Math.floor(Math.random() * available.length)].innerHTML = 'O';
+}
 
+// Medium: win if possible → block if needed → otherwise random
+// No lookahead beyond 1 move, so it's genuinely beatable with good play
+function mediumMove() {
+    // Take the win
     for (let i = 0; i < cells.length; i++) {
         if (cells[i].innerHTML === '') {
             cells[i].innerHTML = 'O';
-            let score = minimax(cells, 0, false);
+            if (checkWin('O')) return;
             cells[i].innerHTML = '';
-            if (score > bestScore) {
-                bestScore = score;
-                move = i;
-            }
         }
     }
-
-    if (move !== undefined) {
-        cells[move].innerHTML = 'O';
+    // Block the player
+    for (let i = 0; i < cells.length; i++) {
+        if (cells[i].innerHTML === '') {
+            cells[i].innerHTML = 'X';
+            if (checkWin('X')) {
+                cells[i].innerHTML = 'O';
+                return;
+            }
+            cells[i].innerHTML = '';
+        }
     }
+    // Random fallback
+    easyMove();
+}
+
+// Hard: full minimax — unbeatable
+function hardMove() {
+    let bestScore = -Infinity, move;
+    for (let i = 0; i < cells.length; i++) {
+        if (cells[i].innerHTML === '') {
+            cells[i].innerHTML = 'O';
+            const score = minimax(cells, 0, false);
+            cells[i].innerHTML = '';
+            if (score > bestScore) { bestScore = score; move = i; }
+        }
+    }
+    if (move !== undefined) cells[move].innerHTML = 'O';
+}
+
+function computerMove() {
+    if      (currentDifficulty === 'easy')   easyMove();
+    else if (currentDifficulty === 'medium') mediumMove();
+    else                                     hardMove();
 
     if (checkWin('O')) {
         gameActive = false;
@@ -130,48 +175,26 @@ function computerMove() {
         playAgainButton.style.display = 'block';
     } else if (cells.every(cell => cell.innerHTML !== '')) {
         gameActive = false;
-        message.innerHTML = 'It\'s a draw!';
+        message.innerHTML = "It\'s a draw!";
         playAgainButton.style.display = 'block';
     } else {
         currentPlayer = 'X';
     }
 }
 
+const WIN_PATTERNS = [
+    [0,1,2],[3,4,5],[6,7,8],
+    [0,3,6],[1,4,7],[2,5,8],
+    [0,4,8],[2,4,6],
+];
 
 function checkWin(player) {
-    const winPatterns = [
-        [0, 1, 2],
-        [3, 4, 5],
-        [6, 7, 8],
-        [0, 3, 6],
-        [1, 4, 7],
-        [2, 5, 8],
-        [0, 4, 8],
-        [2, 4, 6]
-    ];
-
-    return winPatterns.some(pattern => {
-        return pattern.every(index => cells[index].innerHTML === player);
-    });
+    return WIN_PATTERNS.some(p => p.every(i => cells[i].innerHTML === player));
 }
 
 function checkWinState(player, boardState) {
-    const winPatterns = [
-        [0, 1, 2],
-        [3, 4, 5],
-        [6, 7, 8],
-        [0, 3, 6],
-        [1, 4, 7],
-        [2, 5, 8],
-        [0, 4, 8],
-        [2, 4, 6]
-    ];
-
-    return winPatterns.some(pattern => {
-        return pattern.every(index => boardState[index].innerHTML === player);
-    });
+    return WIN_PATTERNS.some(p => p.every(i => boardState[i].innerHTML === player));
 }
-
 
 function minimax(boardState, depth, isMaximizing) {
     if (checkWinState('O', boardState)) return 10 - depth;
@@ -179,31 +202,27 @@ function minimax(boardState, depth, isMaximizing) {
     if (boardState.every(cell => cell.innerHTML !== '')) return 0;
 
     if (isMaximizing) {
-        let bestScore = -Infinity;
+        let best = -Infinity;
         for (let i = 0; i < boardState.length; i++) {
             if (boardState[i].innerHTML === '') {
                 boardState[i].innerHTML = 'O';
-                let score = minimax(boardState, depth + 1, false);
+                best = Math.max(best, minimax(boardState, depth + 1, false));
                 boardState[i].innerHTML = '';
-                bestScore = Math.max(score, bestScore);
             }
         }
-        return bestScore;
+        return best;
     } else {
-        let bestScore = Infinity;
+        let best = Infinity;
         for (let i = 0; i < boardState.length; i++) {
             if (boardState[i].innerHTML === '') {
                 boardState[i].innerHTML = 'X';
-                let score = minimax(boardState, depth + 1, true);
+                best = Math.min(best, minimax(boardState, depth + 1, true));
                 boardState[i].innerHTML = '';
-                bestScore = Math.min(score, bestScore);
             }
         }
-        return bestScore;
+        return best;
     }
 }
-
-
 
 function resetGame() {
     cells.forEach(cell => cell.innerHTML = '');
@@ -214,6 +233,10 @@ function resetGame() {
 }
 
 createBoard();
+
+document.querySelectorAll('.diff-btn').forEach(btn => {
+    btn.addEventListener('click', () => setDifficulty(btn.id.replace('diff-', '')));
+});
 /* ================================
    DARK/LIGHT MODE GLOW ANIMATION
 ================================ */
@@ -306,6 +329,9 @@ function toggleNightMode() {
     document.querySelectorAll('.cell').forEach(cell => {
         cell.classList.toggle('night-mode');
     });
+    document.querySelectorAll('.diff-btn').forEach(btn => {
+        btn.classList.toggle('night-mode');
+    });
     document.querySelectorAll('.location-info').forEach(content => {
         content.classList.toggle('night-mode');
     });
@@ -338,6 +364,9 @@ function toggleNightMode() {
     });
     document.querySelectorAll('.project-card').forEach(card => {
         card.classList.toggle('night-mode');
+    });
+    document.querySelectorAll('.project-demo-btn').forEach(btn => {
+        btn.classList.toggle('night-mode');
     });
     document.querySelectorAll('.project-lang').forEach(lang => {
         lang.classList.toggle('night-mode');

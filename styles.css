@@ -165,6 +165,48 @@ p {
     display: block;
 }
 
+/* Difficulty selector */
+.difficulty-selector {
+    display: flex;
+    margin-bottom: 12px;
+}
+
+.diff-btn {
+    flex: 1;
+    padding: 5px 0;
+    font-size: 13px;
+    font-family: 'Distrampler', sans-serif;
+    border: 1px solid #ccc;
+    background: #fff;
+    cursor: pointer;
+    color: #666;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+.diff-btn:first-child { border-radius: 4px 0 0 4px; }
+.diff-btn:last-child  { border-radius: 0 4px 4px 0; }
+.diff-btn:not(:first-child) { border-left: none; }
+
+.diff-btn:hover:not(.active) { background: #f0f0f0; color: #333; }
+
+.diff-btn.active {
+    background: #333;
+    color: #fff;
+    border-color: #333;
+}
+
+.diff-btn.night-mode {
+    background: #2a2a2a;
+    color: #888;
+    border-color: #555;
+}
+
+.diff-btn.active.night-mode {
+    background: #ddd;
+    color: #1e1e1e;
+    border-color: #ddd;
+}
+
 /* Right Section (Tic-Tac-Toe Game) */
 .right-section {
     flex: 1;
@@ -578,6 +620,50 @@ button.night-mode:hover {
     color: #555;
     margin: 0;
     line-height: 1.4;
+}
+
+/* Inner link for cards that have a demo button */
+.project-card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    flex: 1;
+}
+
+.project-card-link:hover {
+    text-decoration: none;
+}
+
+.project-card-link:hover .project-name {
+    text-decoration: underline;
+}
+
+.project-demo-btn {
+    display: inline-block;
+    margin-top: 0.65rem;
+    padding: 4px 12px;
+    font-size: 0.78rem;
+    border: 1px solid #555;
+    border-radius: 4px;
+    color: #333;
+    text-decoration: none;
+    transition: background 0.18s ease, color 0.18s ease;
+}
+
+.project-demo-btn:hover {
+    background: #333;
+    color: #fff;
+    text-decoration: none;
+}
+
+.project-demo-btn.night-mode {
+    border-color: #aaa;
+    color: #ddd;
+}
+
+.project-demo-btn.night-mode:hover {
+    background: #ddd;
+    color: #1e1e1e;
 }
 
 .project-card.night-mode {

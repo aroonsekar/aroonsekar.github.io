@@ -51,15 +51,17 @@
 
                 <h2 style="text-align:left; margin-bottom:0.5em; margin-top:1.5em;">Open Source</h2>
                 <div class="projects-grid">
-                    <a href="https://github.com/aroonsekar/quant_lab" class="project-card" target="_blank"
-                        rel="noopener">
-                        <div class="project-card-header">
-                            <span class="project-name">quant_lab</span>
-                            <span class="project-lang">Python</span>
-                        </div>
-                        <p class="project-desc">AI-powered algorithmic trading research lab. Backtest, screen &amp;
-                            optimise strategies — with walk-forward validation to keep overfitting honest.</p>
-                    </a>
+                    <div class="project-card">
+                        <a href="https://github.com/aroonsekar/quant_lab" class="project-card-link" target="_blank" rel="noopener">
+                            <div class="project-card-header">
+                                <span class="project-name">quant_lab</span>
+                                <span class="project-lang">Python</span>
+                            </div>
+                            <p class="project-desc">AI-powered algorithmic trading research lab. Backtest, screen &amp;
+                                optimise strategies — with walk-forward validation to keep overfitting honest.</p>
+                        </a>
+                        <a href="https://aroonsquantlab.streamlit.app/" class="project-demo-btn" target="_blank" rel="noopener">Try the Lab →</a>
+                    </div>
                     <a href="https://github.com/aroonsekar/expo-camera-modal" class="project-card" target="_blank"
                         rel="noopener">
                         <div class="project-card-header">
@@ -288,7 +290,12 @@
                 <section id="tic-tac-toe">
                     <h1>Bored?</h1>
                     <h2>Tic-Tac-Toe</h2>
-                    <h5> the computer very smart atm:) - lmk if you beat it</h5>
+                    <h5 id="diff-hint">pick a level and try your luck</h5>
+                    <div class="difficulty-selector">
+                        <button class="diff-btn" id="diff-easy">Easy</button>
+                        <button class="diff-btn active" id="diff-medium">Medium</button>
+                        <button class="diff-btn" id="diff-hard">Hard</button>
+                    </div>
                     <div id="board"></div>
                     <div id="message"></div>
                     <button id="play-again" onclick="resetGame()">Play Again</button>
