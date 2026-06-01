@@ -336,6 +336,27 @@ function toggleNightMode() {
     document.querySelectorAll('.timeline-details').forEach(content => {
         content.classList.toggle('night-mode');
     });
+    document.querySelectorAll('.project-card').forEach(card => {
+        card.classList.toggle('night-mode');
+    });
+    document.querySelectorAll('.project-lang').forEach(lang => {
+        lang.classList.toggle('night-mode');
+    });
+    document.querySelectorAll('.project-desc').forEach(desc => {
+        desc.classList.toggle('night-mode');
+    });
+    document.querySelectorAll('.publication-card').forEach(card => {
+        card.classList.toggle('night-mode');
+    });
+    document.querySelectorAll('.pub-journal').forEach(el => {
+        el.classList.toggle('night-mode');
+    });
+    document.querySelectorAll('.pub-title').forEach(el => {
+        el.classList.toggle('night-mode');
+    });
+    document.querySelectorAll('.pub-desc').forEach(el => {
+        el.classList.toggle('night-mode');
+    });
 }
 
 /* ==============================
@@ -349,3 +370,79 @@ timelineHeadings.forEach(heading => {
     });
 });
 if (typeof module !== 'undefined') { module.exports = { checkWin, minimax, cells }; }
+
+/* ==============================
+   PIXEL BUNNY
+============================== */
+(function () {
+    const header = document.querySelector('header');
+    if (!header) return;
+
+    const SCALE = 3;
+    const PW = 8, PH = 11;
+
+    const canvas = document.createElement('canvas');
+    canvas.id = 'bunny-canvas';
+    canvas.width  = PW * SCALE;
+    canvas.height = PH * SCALE;
+    header.appendChild(canvas);
+
+    const ctx = canvas.getContext('2d');
+
+    // 0 = transparent | 1 = body | 2 = outline | 3 = pink | 4 = eye (always dark)
+    const SPRITE = [
+        [0,0,2,0,0,2,0,0],
+        [0,0,2,0,0,2,0,0],
+        [0,2,3,2,2,3,2,0],
+        [0,2,1,1,1,1,2,0],
+        [2,1,4,1,1,1,1,2],
+        [2,1,1,3,1,1,1,2],
+        [2,1,1,1,1,1,1,2],
+        [0,2,1,1,1,1,2,0],
+        [0,2,1,1,1,1,2,0],
+        [2,2,0,0,0,0,2,2],
+        [2,0,0,0,0,0,0,2],
+    ];
+    const SPRITE_L = SPRITE.map(row => [...row].reverse());
+
+    function palette() {
+        const night = document.body.classList.contains('night-mode');
+        return [null,
+            night ? '#ccc8c2' : '#f0ebe3',  // body
+            night ? '#eeeeee' : '#2a2a2a',  // outline
+            '#f4a0a8',                        // pink (nose/ears)
+            night ? '#3a3a3a' : '#1a1a1a',  // eye — always dark
+        ];
+    }
+
+    function draw(facingLeft) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        const c = palette();
+        const src = facingLeft ? SPRITE_L : SPRITE;
+        src.forEach((row, r) => row.forEach((p, col) => {
+            if (!p) return;
+            ctx.fillStyle = c[p];
+            ctx.fillRect(col * SCALE, r * SCALE, SCALE, SCALE);
+        }));
+    }
+
+    let x = 0, vx = 1.4, t = 0;
+
+    function tick() {
+        t++;
+        const maxX = header.offsetWidth - canvas.width;
+        x += vx;
+        if (x >= maxX) { x = maxX; vx = -Math.abs(vx); }
+        if (x <= 0)    { x = 0;    vx =  Math.abs(vx); }
+
+        const hop = Math.abs(Math.sin(t * 0.14)) * 11;
+        canvas.style.left   = x + 'px';
+        canvas.style.bottom = (2 + hop) + 'px';
+
+        draw(vx < 0);
+        requestAnimationFrame(tick);
+    }
+
+    draw(false);
+    requestAnimationFrame(tick);
+}());

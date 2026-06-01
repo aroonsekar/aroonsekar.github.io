@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Library/**)",
+      "Read(//usr/local/**)",
+      "Bash(brew --version)",
+      "Bash(brew install *)",
+      "Bash(tectonic --version)",
+      "Bash(tectonic Arun_CV.tex)",
+      "WebFetch(domain:www.tandfonline.com)",
+      "WebFetch(domain:doi.org)",
+      "WebFetch(domain:shellsharks.com)",
+      "Bash(node -e ' *)"
+    ]
+  }
+}

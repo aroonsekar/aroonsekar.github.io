@@ -1,0 +1,106 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[left=0.5in,right=0.5in,top=0.5in,bottom=0.5in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{accent}{HTML}{1F3864}
+
+\pagestyle{empty}
+\raggedright
+\setlength{\parindent}{0pt}
+\setlist[itemize]{leftmargin=1.25em, itemsep=1pt, topsep=2pt, parsep=0pt}
+
+%==== Section header ====%
+\newcommand{\header}[1]{%
+    \vspace*{6pt}%
+    {\color{accent}\textbf{\scshape #1}}\hspace{4pt}%
+    {\color{accent}\hrulefill}\par\vspace*{2pt}%
+}
+
+\begin{document}
+
+%==== Contact ====%
+\begin{center}
+    {\Huge \scshape \color{accent} Arun Kumar Sekar}\\[4pt]
+    {\large Full-Stack Software Engineer}\\[3pt]
+    Manchester, United Kingdom $\cdot$ arunsmiracle@gmail.com $\cdot$ +44 7384 076826\\[1pt]
+    \href{https://linkedin.com/in/arunkumarsekar/}{linkedin.com/in/arunkumarsekar} $\cdot$
+    \href{https://aroonsekar.github.io/}{aroonsekar.github.io}
+\end{center}
+\vspace*{2pt}
+
+%==== Profile ====%
+\header{Profile}
+Full-stack Software Engineer (MSc Computer Science, Distinction) who builds and operates production systems end-to-end --- application development, AWS infrastructure, CI/CD, and security. Currently leads a cross-functional engineering team at a fast-growing startup, owning a core product within a multi-tenant SaaS suite used by hundreds of daily users. Published human-computer interaction researcher. Comfortable owning delivery from architecture through deployment and reliability, and turning business requirements into maintainable, scalable systems.
+
+%==== Experience ====%
+\header{Work Experience}
+
+\textbf{AR Experts Ltd} \hfill Manchester, United Kingdom (Remote)\\
+\textit{Software Developer} \hfill April 2025 -- Present
+\begin{itemize}
+    \item Lead a cross-functional team of 3 web and mobile engineers delivering the BizAlign suite --- 4 enterprise products (8 iOS / Android apps) --- and own one core product end-to-end.
+    \item Deliver a Workforce app used by around 600 drivers and a multi-tenant HR platform serving 3 client organisations, alongside Fleet and Telematics products.
+    \item Replaced a manual vehicle inspection-and-signature chain (22-angle photo capture $\rightarrow$ document assembly $\rightarrow$ external DocuSign $\rightarrow$ per-driver Dropbox filing) with a single in-app flow: assistants capture inspections in-app, documents auto-generate and route for in-app signature across web and mobile --- cutting turnaround from days to minutes and manual effort by around 60\%.
+    \item Own architecture and delivery of full-stack MERN applications with TypeScript throughout, prioritising modular, maintainable systems.
+    \item Deployed and managed Dockerised ML model containers on EC2, reducing manual image-validation workload by around 75\%.
+    \item Build and maintain CI/CD pipelines (GitHub Actions) and manage AWS infrastructure (EC2 on Amazon Linux, S3); ship feature updates and fixes on a roughly bi-weekly cadence across all 4 apps.
+    \item Lead code review, pull-request approval, App Store / Play Store deployment, and the team's DevOps and security practices.
+\end{itemize}
+
+\textit{Associate Software Developer} \hfill Nov 2024 -- April 2025
+\begin{itemize}
+    \item Delivered a multi-tenant ERP system handling 20{,}000--30{,}000 daily API calls and 10{,}000+ monthly uploads.
+    \item Designed RESTful APIs and integrated third-party services for real-time data processing.
+    \item Architected secure internal access with WireGuard VPN; administered Ubuntu and Amazon Linux servers (deployments, access control, monitoring).
+    \item Set up development, staging, and production environments and ensured GDPR compliance for App Store and Play Store releases.
+\end{itemize}
+
+\textbf{Northumbria University / Northumbrian Water Ltd} \hfill Newcastle, United Kingdom\\
+\textit{Technical Lead --- Advanced Practice Project} \hfill Jan 2024 -- May 2024
+\begin{itemize}
+    \item Led a team building a 3D flood-simulation system in Unreal Engine for a regulated public utility, integrating models from Blender, 3ds Max, and SketchUp.
+    \item Defined system design and core mechanics and delivered the project on schedule.
+\end{itemize}
+
+\textbf{Digitally Inspired Media Pvt Ltd} \hfill Chennai, India\\
+\textit{Junior Graphic Designer} \hfill Sep 2021 -- Jan 2023
+\begin{itemize}
+    \item Produced 200+ creatives across 10+ brands; acted as interim Design Lead, reviewing and approving creative output.
+\end{itemize}
+
+%==== Education ====%
+\header{Education}
+\textbf{Northumbria University} \hfill Newcastle, United Kingdom\\
+MSc Computer Science with Advanced Practice --- \textbf{Distinction} \hfill Jan 2023 -- Jan 2025\\[3pt]
+\textbf{St. Joseph's College of Engineering} \hfill Chennai, India\\
+B.E. Electrical \& Electronics Engineering, GPA: 8.43 \hfill Aug 2017 -- April 2021
+
+%==== Skills ====%
+\header{Core Skills}
+\textbf{Programming:} TypeScript, JavaScript, Python, C\#, Java, SQL\\
+\textbf{Full-Stack \& Mobile:} React, Node.js, Express, MongoDB (MERN); React Native, Expo; App Store / Play Store deployment\\
+\textbf{Cloud \& DevOps:} AWS (EC2, S3), Docker, CI/CD (GitHub Actions), Linux (Ubuntu, Amazon Linux), WireGuard VPN\\
+\textbf{Architecture:} REST APIs, multi-tenant systems, microservices, scalable \& secure system design\\
+\textbf{Data \& Monitoring:} Dashboards, data visualisation, Grafana, Loki, logging \& anomaly detection\\
+\textbf{Practices:} Agile / Scrum, code review, GDPR compliance, secure infrastructure\\
+\textbf{Also:} Unreal Engine, Blender; IoT / embedded systems (ESP32, Arduino)
+
+%==== Publication & Projects ====%
+\header{Publication \& Selected Projects}
+\begin{itemize}
+    \item \textbf{Immersive Data Visualisation in VR} --- Published in the \textit{International Journal of Human-Computer Interaction} (2025). Built a VR data-visualisation system blending artistic patterns with charts; user studies demonstrated improved engagement and usability.
+    \item \textbf{Autonomous Table Robot} --- ESP32 embedded build with motor control, IR / ultrasonic sensing, IMU, and OLED display (personal IoT project).
+    \item \textbf{Tooneland Event Platform} --- Dynamic event-booking platform with user management and booking workflows.
+\end{itemize}
+
+%==== Leadership ====%
+\header{Leadership}
+Vice Chairman \& Treasurer, IEEE Robotics Society $\cdot$ Student Representative, MSc Computer Science, Northumbria University
+
+\end{document}
