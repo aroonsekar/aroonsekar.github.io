@@ -1,18 +1,136 @@
-/* Include Google Font Poppins */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
-
-/* Include custom font Distrampler */
+/* =========================================
+   ANTHROPIC SERIF — Display (headings)
+========================================= */
 @font-face {
-    font-family: 'Distrampler';
-    src: url('/fonts/Distrampler.ttf');
+    font-family: 'AnthropicSerifDisplay';
+    src: url('/fonts/Anthropic Serif/AnthropicSerif-Display-Light-Static.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
 }
 
-/* General reset and styling */
-body, h1, h2, h3, p, button {
+@font-face {
+    font-family: 'AnthropicSerifDisplay';
+    src: url('/fonts/Anthropic Serif/AnthropicSerif-Display-LightItalic-Static.otf') format('opentype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'AnthropicSerifDisplay';
+    src: url('/fonts/Anthropic Serif/AnthropicSerif-Display-Regular-Static.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'AnthropicSerifDisplay';
+    src: url('/fonts/Anthropic Serif/AnthropicSerif-Display-Semibold-Static.otf') format('opentype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'AnthropicSerifDisplay';
+    src: url('/fonts/Anthropic Serif/AnthropicSerif-Display-Bold-Static.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'AnthropicSerifDisplay';
+    src: url('/fonts/Anthropic Serif/AnthropicSerif-Display-Extrabold-Static.otf') format('opentype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+/* =========================================
+   ANTHROPIC SERIF — Text (body & UI)
+========================================= */
+@font-face {
+    font-family: 'AnthropicSerif';
+    src: url('/fonts/Anthropic Serif/AnthropicSerif-Text-Light-Static.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'AnthropicSerif';
+    src: url('/fonts/Anthropic Serif/AnthropicSerif-Text-LightItalic-Static.otf') format('opentype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'AnthropicSerif';
+    src: url('/fonts/Anthropic Serif/AnthropicSerif-Text-Regular-Static.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'AnthropicSerif';
+    src: url('/fonts/Anthropic Serif/AnthropicSerif-Text-RegularItalic-Static.otf') format('opentype');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'AnthropicSerif';
+    src: url('/fonts/Anthropic Serif/AnthropicSerif-Text-Medium-Static.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'AnthropicSerif';
+    src: url('/fonts/Anthropic Serif/AnthropicSerif-Text-Semibold-Static.otf') format('opentype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'AnthropicSerif';
+    src: url('/fonts/Anthropic Serif/AnthropicSerif-Text-SemiboldItalic-Static.otf') format('opentype');
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'AnthropicSerif';
+    src: url('/fonts/Anthropic Serif/AnthropicSerif-Text-Bold-Static.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* =========================================
+   GLOBAL RESET
+========================================= */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+button,
+input,
+span {
     margin: 0;
     padding: 0;
-    font-family: 'Distrampler', sans-serif, 'Times New Roman', Times, serif;
-    box-sizing: border-box;
+}
+
+/* Base: Text optical size, Regular weight */
+body {
+    font-family: 'AnthropicSerif', Georgia, serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.65;
 }
 
 body {
@@ -100,30 +218,54 @@ main {
 }
 
 h1 {
-    font-size: 36px;
-    margin-bottom: 10px;
+    font-family: 'AnthropicSerifDisplay', Georgia, serif;
+    font-size: 2.4rem;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 0.3em;
 }
 
 h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
+    font-family: 'AnthropicSerifDisplay', Georgia, serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    margin-bottom: 0.5em;
+}
+
+h3 {
+    font-family: 'AnthropicSerifDisplay', Georgia, serif;
+    font-size: 1.15rem;
+    font-weight: 200;
+    margin-bottom: 0.4em;
 }
 
 h4 {
-    font-size: 20px;
-    font-size: 20px;
-    margin-bottom: 0px;
-    margin-top: 0px;
+    font-family: 'AnthropicSerif', Georgia, serif;
+    font-size: 1rem;
+    font-weight: 200;
+    margin-bottom: 0;
+    margin-top: 0;
 }
+
 h5 {
-    font-size: 12px;
+    font-family: 'AnthropicSerif', Georgia, serif;
+    font-size: 0.8rem;
+    font-weight: 100;
+    font-style: italic;
+    color: #888;
     margin-bottom: 0.5em;
-    margin-top: 0px;
+    margin-top: 0;
 }
 
 p {
-    font-size: 16px;
-    margin-bottom: 20px;
+    font-family: 'AnthropicSerif', Georgia, serif;
+    font-size: 1rem;
+    font-weight: 100;
+    line-height: 1.75;
+    margin-bottom: 1.2em;
 }
 
 /* Accordion Section Styling */
@@ -139,8 +281,9 @@ p {
     width: 100%;
     text-align: left;
     padding: 15px;
-    font-size: 18px;
-    font-weight: bold;
+    font-family: 'AnthropicSerif', Georgia, serif;
+    font-size: 1rem;
+    font-weight: 200;
     background-color: #ffffff;
     border: none;
     outline: none;
@@ -175,7 +318,7 @@ p {
     flex: 1;
     padding: 5px 0;
     font-size: 13px;
-    font-family: 'Distrampler', sans-serif;
+    font-family: 'AnthropicSerif', Georgia, serif;
     border: 1px solid #ccc;
     background: #fff;
     cursor: pointer;
@@ -183,11 +326,22 @@ p {
     transition: background 0.15s ease, color 0.15s ease;
 }
 
-.diff-btn:first-child { border-radius: 4px 0 0 4px; }
-.diff-btn:last-child  { border-radius: 0 4px 4px 0; }
-.diff-btn:not(:first-child) { border-left: none; }
+.diff-btn:first-child {
+    border-radius: 4px 0 0 4px;
+}
 
-.diff-btn:hover:not(.active) { background: #f0f0f0; color: #333; }
+.diff-btn:last-child {
+    border-radius: 0 4px 4px 0;
+}
+
+.diff-btn:not(:first-child) {
+    border-left: none;
+}
+
+.diff-btn:hover:not(.active) {
+    background: #f0f0f0;
+    color: #333;
+}
 
 .diff-btn.active {
     background: #333;
@@ -218,7 +372,9 @@ p {
 }
 
 #tic-tac-toe h2 {
-    font-size: 28px;
+    font-family: 'AnthropicSerifDisplay', Georgia, serif;
+    font-size: 1.6rem;
+    font-weight: 400;
     margin-bottom: 10px;
 }
 
@@ -235,21 +391,28 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 24px;
+    font-family: 'AnthropicSerif', Georgia, serif;
+    font-size: 1.4rem;
+    font-weight: 400;
     cursor: pointer;
     border: 1px solid #000;
 }
 
 #message {
     margin-top: 20px;
-    font-size: 20px;
+    font-family: 'AnthropicSerif', Georgia, serif;
+    font-size: 1.1rem;
+    font-weight: 500;
 }
 
 #play-again {
     display: none;
     margin-top: 10px;
     padding: 10px 20px;
-    font-size: 16px;
+    font-family: 'AnthropicSerif', Georgia, serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
 }
 
 /* Footer Styling */
@@ -266,13 +429,15 @@ footer {
 .footer-content {
     display: flex;
     justify-content: center;
-    padding:0px 0;
+    padding: 0px 0;
     background-color: #ffffff;
     width: 80%;
 }
 
 footer p {
-    font-size: 14px;
+    font-family: 'AnthropicSerif', Georgia, serif;
+    font-size: 0.78rem;
+    font-weight: 400;
     color: #666;
     margin: 0;
 }
@@ -281,13 +446,13 @@ footer p {
 
 #page-size {
     text-align: left;
-    
+
 }
 
 #created-by {
     text-align: center;
     flex-grow: 1;
-   
+
 }
 
 #current-time {
@@ -304,7 +469,8 @@ footer p {
         gap: 10px;
     }
 
-    .left-section, .right-section {
+    .left-section,
+    .right-section {
         flex: none;
         margin: 0;
     }
@@ -316,8 +482,13 @@ footer p {
 }
 
 @media (max-width: 768px) {
-    #bunny-canvas { display: none; }
-    header { padding-bottom: 10px; }
+    #bunny-canvas {
+        display: none;
+    }
+
+    header {
+        padding-bottom: 10px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -347,9 +518,10 @@ footer p {
         align-items: center;
         width: 100%;
     }
-    
 
-    .contact-info, .location-info {
+
+    .contact-info,
+    .location-info {
         font-size: 12px;
         text-align: center;
         margin-bottom: 0.5em;
@@ -437,25 +609,27 @@ footer p {
         color: #fff;
         border-radius: 15px;
     }
-    
+
     #night-mode-toggle:hover {
         background-color: #fff;
     }
 
-    a.night-mode{
-        color:#fff;
+    a.night-mode {
+        color: #fff;
     }
 
 
 }
-    
+
 
 
 
 #night-mode-toggle {
     margin-left: 20px;
-    padding: 5px 10px;
-    font-size: 14px;
+    padding: 5px 12px;
+    font-family: 'AnthropicSerif', Georgia, serif;
+    font-size: 0.8rem;
+    font-weight: 500;
     cursor: pointer;
     border: none;
     background-color: #333;
@@ -474,7 +648,7 @@ body.night-mode {
     color: white;
 }
 
- footer.night-mode {
+footer.night-mode {
     background-color: #1e1e1e;
     color: white;
     border-top: 1px solid #ffffff;
@@ -482,7 +656,8 @@ body.night-mode {
     width: 100%;
 }
 
-.contact-info.night-mode, .location-info.night-mode {
+.contact-info.night-mode,
+.location-info.night-mode {
     color: #ffffff;
 }
 
@@ -602,12 +777,15 @@ button.night-mode:hover {
 }
 
 .project-name {
-    font-weight: bold;
+    font-family: 'AnthropicSerif', Georgia, serif;
+    font-weight: 400;
     font-size: 0.95rem;
 }
 
 .project-lang {
-    font-size: 0.72rem;
+    font-family: 'AnthropicSerif', Georgia, serif;
+    font-size: 0.7rem;
+    font-weight: 400;
     color: #888;
     border: 1px solid #ddd;
     border-radius: 10px;
@@ -616,10 +794,12 @@ button.night-mode:hover {
 }
 
 .project-desc {
+    font-family: 'AnthropicSerif', Georgia, serif;
     font-size: 0.875rem;
+    font-weight: 400;
     color: #555;
     margin: 0;
-    line-height: 1.4;
+    line-height: 1.55;
 }
 
 /* Inner link for cards that have a demo button */
@@ -715,27 +895,34 @@ button.night-mode:hover {
 }
 
 .pub-journal {
-    font-size: 0.78rem;
-    color: #888;
+    font-family: 'AnthropicSerif', Georgia, serif;
+    font-size: 0.75rem;
+    font-weight: 300;
     font-style: italic;
+    color: #888;
 }
 
 .pub-doi {
-    font-size: 0.78rem;
+    font-family: 'AnthropicSerif', Georgia, serif;
+    font-size: 0.75rem;
+    font-weight: 500;
     white-space: nowrap;
 }
 
 .pub-title {
-    font-weight: bold;
-    font-size: 1rem;
+    font-family: 'AnthropicSerifDisplay', Georgia, serif;
+    font-weight: 400;
+    font-size: 1.05rem;
     margin-bottom: 0.4rem;
 }
 
 .pub-desc {
+    font-family: 'AnthropicSerif', Georgia, serif;
     font-size: 0.875rem;
+    font-weight: 400;
     color: #555;
     margin: 0;
-    line-height: 1.45;
+    line-height: 1.6;
 }
 
 .publication-card.night-mode {
@@ -768,7 +955,8 @@ button.night-mode:hover {
     content: "";
     position: absolute;
     top: 0;
-    left: 30px; /* line position from the left */
+    left: 30px;
+    /* line position from the left */
     width: 2px;
     height: 100%;
     background-color: #555;
@@ -783,47 +971,55 @@ body.night-mode .timeline-container::before {
 .timeline-item {
     position: relative;
     margin: 2rem 0;
-    padding-left: 60px; /* space to accommodate line & dot */
+    padding-left: 60px;
+    /* space to accommodate line & dot */
 }
 
 
 /* Dot on the line */
 .timeline-dot {
     position: absolute;
-    left: 20px;  /* line up with the timeline line's left: 30px minus radius */
+    left: 20px;
+    /* line up with the timeline line's left: 30px minus radius */
     top: 0;
     width: 14px;
     height: 14px;
     background-color: #1E1E1E;
     border-radius: 50%;
     border: 4px solid #fff;
-   
+
 }
 
 .timeline-dot.night-mode {
     position: absolute;
-    left: 20px;  /* line up with the timeline line's left: 30px minus radius */
+    left: 20px;
+    /* line up with the timeline line's left: 30px minus radius */
     top: 0;
     width: 14px;
     height: 14px;
     background-color: #fff;
     border-radius: 50%;
     border: 4px solid #1E1E1E;
-   
+
 }
 
 /* Year label text */
 .timeline-year {
-    font-weight: bold;
+    font-family: 'AnthropicSerif', Georgia, serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.01em;
     margin-bottom: 0.2rem;
-    font-size: 1.1rem;
 }
 
 /* Clickable heading next to the dot */
 .timeline-heading {
     cursor: pointer;
-    margin-top: 0.2rem;
-    font-size: 1rem;
+    margin-top: 0.15rem;
+    font-family: 'AnthropicSerif', Georgia, serif;
+    font-size: 0.9rem;
+    font-weight: 400;
+    font-style: italic;
     color: #555;
     text-decoration: underline;
     display: inline-block;
@@ -831,9 +1027,9 @@ body.night-mode .timeline-container::before {
 
 .timeline-heading.night-mode {
     cursor: pointer;
-    margin-top: 0.2rem;
-    font-size: 1rem;
-    color: #fff;
+    margin-top: 0.15rem;
+    font-size: 0.9rem;
+    color: #bbb;
     text-decoration: underline;
     display: inline-block;
 }
@@ -863,7 +1059,8 @@ body.night-mode .timeline-container::before {
 
 /* Show details when active */
 .timeline-details.active {
-    max-height: 200px;  /* adjust as needed */
+    max-height: 200px;
+    /* adjust as needed */
     padding-top: 1rem;
     padding-bottom: 1rem;
 }
@@ -876,18 +1073,19 @@ body.night-mode .timeline-container::before {
 /* =========================================
    DARK & LIGHT GLOW OVERLAYS
 ========================================= */
-#dark-glow, 
+#dark-glow,
 #light-glow {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  pointer-events: none;  /* ignore clicks */
-  z-index: 9999;
-  opacity: 0;
-  transform: scale(0);
-  transition: transform 0.25s ease, opacity 0.25s ease;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    /* ignore clicks */
+    z-index: 9999;
+    opacity: 0;
+    transform: scale(0);
+    transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
 /* We'll dynamically set the background in JS 
@@ -896,8 +1094,8 @@ body.night-mode .timeline-container::before {
 /* When the overlay is 'active', it expands to fill the screen. */
 #dark-glow.glow-active,
 #light-glow.glow-active {
-  transform: scale(4);
-  opacity: 10;
+    transform: scale(4);
+    opacity: 10;
 }
 
 /* =========================================
@@ -911,11 +1109,17 @@ body.night-mode .timeline-container::before {
 
 /* Index page */
 .blog-index-title {
+    font-family: 'AnthropicSerifDisplay', Georgia, serif;
     font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
     margin-bottom: 0.25em;
 }
 
 .blog-index-desc {
+    font-family: 'AnthropicSerif', Georgia, serif;
+    font-weight: 300;
+    font-style: italic;
     color: #666;
     font-size: 0.95rem;
     margin-bottom: 2em;
@@ -947,18 +1151,23 @@ body.night-mode .timeline-container::before {
 }
 
 .post-list-date {
-    font-size: 0.78rem;
+    font-family: 'AnthropicSerif', Georgia, serif;
+    font-size: 0.75rem;
+    font-weight: 300;
     color: #888;
     white-space: nowrap;
     min-width: 6.5em;
 }
 
 .post-list-title {
+    font-family: 'AnthropicSerif', Georgia, serif;
+    font-weight: 500;
     flex: 1;
     font-size: 1rem;
 }
 
 .post-list-arrow {
+    font-family: 'AnthropicSerif', Georgia, serif;
     color: #aaa;
     font-size: 0.9rem;
 }
@@ -971,13 +1180,18 @@ body.night-mode .timeline-container::before {
 }
 
 .post-title {
-    font-size: 2rem;
+    font-family: 'AnthropicSerifDisplay', Georgia, serif;
+    font-size: 2.2rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
     margin-bottom: 0.3em;
-    line-height: 1.2;
+    line-height: 1.15;
 }
 
 .post-meta {
-    font-size: 0.82rem;
+    font-family: 'AnthropicSerif', Georgia, serif;
+    font-size: 0.78rem;
+    font-weight: 300;
     color: #888;
     display: flex;
     gap: 0.5em;
@@ -989,32 +1203,42 @@ body.night-mode .timeline-container::before {
 }
 
 .post-body p {
-    font-size: 1rem;
-    line-height: 1.75;
+    font-family: 'AnthropicSerif', Georgia, serif;
+    font-size: 1.05rem;
+    font-weight: 400;
+    line-height: 1.8;
     margin-bottom: 1.4em;
     color: #222;
 }
 
 .post-body h2 {
-    font-size: 1.25rem;
+    font-family: 'AnthropicSerif', Georgia, serif;
+    font-size: 1.3rem;
+    font-weight: 500;
     margin-top: 2em;
     margin-bottom: 0.5em;
+    font-style: italic;
 }
 
 .post-body h3 {
-    font-size: 1.05rem;
+    font-family: 'AnthropicSerifDisplay', Georgia, serif;
+    font-size: 1.1rem;
+    font-weight: 300;
     margin-top: 1.5em;
     margin-bottom: 0.4em;
 }
 
-.post-body ul, .post-body ol {
+.post-body ul,
+.post-body ol {
+    font-family: 'AnthropicSerif', Georgia, serif;
+    font-size: 1.05rem;
     padding-left: 1.5em;
     margin-bottom: 1.4em;
 }
 
 .post-body li {
     margin-bottom: 0.4em;
-    line-height: 1.6;
+    line-height: 1.75;
 }
 
 .post-body code {
@@ -1039,11 +1263,13 @@ body.night-mode .timeline-container::before {
 }
 
 .post-body blockquote {
+    font-family: 'AnthropicSerif', Georgia, serif;
+    font-weight: 300;
+    font-style: italic;
     border-left: 3px solid #ccc;
     padding-left: 1em;
     color: #555;
     margin: 1.4em 0;
-    font-style: italic;
 }
 
 .post-tags {
@@ -1054,7 +1280,9 @@ body.night-mode .timeline-container::before {
 }
 
 .post-tag {
-    font-size: 0.78rem;
+    font-family: 'AnthropicSerif', Georgia, serif;
+    font-size: 0.72rem;
+    font-weight: 400;
     color: #888;
     border: 1px solid #ddd;
     border-radius: 10px;
@@ -1068,7 +1296,9 @@ body.night-mode .timeline-container::before {
 }
 
 .post-nav-link {
+    font-family: 'AnthropicSerif', Georgia, serif;
     font-size: 0.9rem;
+    font-weight: 500;
 }
 
 /* Night mode — blog */
@@ -1127,12 +1357,458 @@ body.night-mode .post-title {
         padding: 0 1em;
     }
 
-    .post-title, .blog-index-title {
+    .post-title,
+    .blog-index-title {
         font-size: 1.5rem;
         text-align: left;
     }
 
     .post-list-date {
         display: none;
+    }
+}
+
+/* =========================================
+   LONG-FORM POST COMPONENTS
+   (diagram, figures, callouts, cards, code)
+   Accent teal #4ecdc4 to match night-mode links.
+========================================= */
+
+.post-lead {
+    font-family: 'AnthropicSerif', Georgia, serif;
+    font-size: 1.22rem;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 1.6em;
+}
+
+body.night-mode .post-lead {
+    color: #e8e8e8;
+}
+
+.post-subtitle {
+    font-family: 'AnthropicSerif', Georgia, serif;
+    font-size: 1.02rem;
+    font-style: italic;
+    color: #777;
+    margin: -0.1em 0 0.2em;
+}
+
+body.night-mode .post-subtitle {
+    color: #9a9a9a;
+}
+
+.post-body h3 {
+    font-family: 'AnthropicSerifDisplay', Georgia, serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin: 1.6em 0 0.3em;
+}
+
+/* --- Section rule / kicker --- */
+.section-kicker {
+    display: block;
+    font-family: monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #12a594;
+    margin: 2.4em 0 0.2em;
+}
+
+body.night-mode .section-kicker {
+    color: #4ecdc4;
+}
+
+/* --- Figures & screenshot placeholders --- */
+figure.post-figure {
+    margin: 1.8em 0;
+}
+
+figure.post-figure img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 1px solid #e6e6e6;
+    border-radius: 10px;
+}
+
+body.night-mode figure.post-figure img {
+    border-color: #3a3a3a;
+}
+
+figure.post-figure figcaption {
+    font-family: 'AnthropicSerif', Georgia, serif;
+    font-size: 0.82rem;
+    color: #888;
+    text-align: center;
+    margin-top: 0.7em;
+    line-height: 1.5;
+}
+
+body.night-mode figure.post-figure figcaption {
+    color: #999;
+}
+
+.img-placeholder {
+    width: 100%;
+    min-height: 190px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+    text-align: center;
+    padding: 2em 1.4em;
+    border: 1.5px dashed #cfcfcf;
+    border-radius: 10px;
+    background:
+        repeating-linear-gradient(45deg, #fafafa, #fafafa 12px, #f4f4f4 12px, #f4f4f4 24px);
+    color: #999;
+}
+
+body.night-mode .img-placeholder {
+    border-color: #4a4a4a;
+    background:
+        repeating-linear-gradient(45deg, #262626, #262626 12px, #222 12px, #222 24px);
+    color: #888;
+}
+
+.img-placeholder .ph-tag {
+    font-family: monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    color: #12a594;
+    border: 1px solid #bfe9e2;
+    border-radius: 20px;
+    padding: 2px 12px;
+    background: #fff;
+}
+
+body.night-mode .img-placeholder .ph-tag {
+    color: #4ecdc4;
+    border-color: #2f5f5a;
+    background: #1e1e1e;
+}
+
+.img-placeholder .ph-label {
+    font-family: 'AnthropicSerif', Georgia, serif;
+    font-size: 0.92rem;
+    max-width: 34ch;
+}
+
+.img-placeholder .ph-file {
+    font-family: monospace;
+    font-size: 0.75rem;
+    color: #aaa;
+}
+
+/* --- Callouts --- */
+.callout {
+    display: flex;
+    gap: 0.8em;
+    padding: 1em 1.2em;
+    border-radius: 10px;
+    margin: 1.6em 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    border: 1px solid #e8e8e8;
+    border-left: 3px solid #12a594;
+    background: #f8fcfb;
+}
+
+.callout .callout-mark {
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+.callout p {
+    margin: 0;
+}
+
+body.night-mode .callout {
+    background: #242a29;
+    border-color: #333;
+    border-left-color: #4ecdc4;
+    color: #ddd;
+}
+
+.callout.callout-warn {
+    border-left-color: #e0a53b;
+    background: #fdf9f1;
+}
+
+body.night-mode .callout.callout-warn {
+    background: #2b271e;
+    border-left-color: #e0a53b;
+}
+
+/* --- Spec / pillar cards --- */
+.spec-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.9em;
+    margin: 1.6em 0;
+}
+
+.spec-card {
+    border: 1px solid #e6e6e6;
+    border-radius: 12px;
+    padding: 1.1em 1.2em;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.spec-card:hover {
+    border-color: #bfe9e2;
+    box-shadow: 0 2px 10px rgba(18, 165, 148, 0.08);
+}
+
+body.night-mode .spec-card {
+    border-color: #383838;
+}
+
+body.night-mode .spec-card:hover {
+    border-color: #3f6f69;
+    box-shadow: 0 2px 10px rgba(78, 205, 196, 0.08);
+}
+
+.spec-card .spec-icon {
+    font-size: 1.2rem;
+}
+
+.spec-card h4 {
+    font-family: 'AnthropicSerifDisplay', Georgia, serif;
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0.4em 0 0.3em;
+}
+
+.spec-card p {
+    font-size: 0.88rem;
+    color: #666;
+    margin: 0;
+    line-height: 1.55;
+}
+
+body.night-mode .spec-card p {
+    color: #aaa;
+}
+
+/* --- Metric tiles --- */
+.metric-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.8em;
+    margin: 1.8em 0;
+}
+
+.metric {
+    text-align: center;
+    padding: 1.1em 0.6em;
+    border: 1px solid #e6e6e6;
+    border-radius: 12px;
+}
+
+body.night-mode .metric {
+    border-color: #383838;
+}
+
+.metric .metric-num {
+    font-family: 'AnthropicSerifDisplay', Georgia, serif;
+    font-size: 1.9rem;
+    font-weight: 400;
+    line-height: 1;
+    color: #12a594;
+    letter-spacing: -0.02em;
+}
+
+body.night-mode .metric .metric-num {
+    color: #4ecdc4;
+}
+
+.metric .metric-label {
+    font-size: 0.76rem;
+    color: #888;
+    margin-top: 0.5em;
+    display: block;
+    line-height: 1.4;
+}
+
+body.night-mode .metric .metric-label {
+    color: #999;
+}
+
+/* --- Tech stack chips --- */
+.stack-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+    margin: 1.4em 0 1.8em;
+}
+
+.stack-chip {
+    font-family: monospace;
+    font-size: 0.76rem;
+    color: #555;
+    border: 1px solid #e0e0e0;
+    border-radius: 7px;
+    padding: 4px 10px;
+    background: #fafafa;
+}
+
+body.night-mode .stack-chip {
+    color: #bbb;
+    border-color: #3c3c3c;
+    background: #262626;
+}
+
+/* --- Code block with filename label --- */
+.code-figure {
+    margin: 1.4em 0;
+}
+
+.code-figure .code-label {
+    font-family: monospace;
+    font-size: 0.74rem;
+    color: #888;
+    background: #ececec;
+    border: 1px solid #e0e0e0;
+    border-bottom: none;
+    border-radius: 6px 6px 0 0;
+    padding: 6px 12px;
+    display: block;
+}
+
+.code-figure pre {
+    margin: 0 !important;
+    border-radius: 0 0 6px 6px !important;
+}
+
+body.night-mode .code-figure .code-label {
+    background: #202020;
+    border-color: #333;
+    color: #999;
+}
+
+/* --- Animated data-flow diagram --- */
+.flow-diagram {
+    margin: 1.8em 0 0.6em;
+    border: 1px solid #ececec;
+    border-radius: 12px;
+    padding: 1.4em 1em;
+    background: #fcfcfc;
+}
+
+body.night-mode .flow-diagram {
+    border-color: #333;
+    background: #212121;
+}
+
+.flow-diagram svg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* diagram theme tokens */
+.flow-diagram {
+    --dg-node: #ffffff;
+    --dg-stroke: #d9d9d9;
+    --dg-text: #333333;
+    --dg-muted: #8a8a8a;
+    --dg-accent: #12a594;
+    --dg-accent-soft: #e5f6f3;
+    --dg-danger: #d1685f;
+    --dg-line: #c7c7c7;
+}
+
+body.night-mode .flow-diagram {
+    --dg-node: #2a2a2a;
+    --dg-stroke: #454545;
+    --dg-text: #e8e8e8;
+    --dg-muted: #9a9a9a;
+    --dg-accent: #4ecdc4;
+    --dg-accent-soft: #24413e;
+    --dg-danger: #e07c72;
+    --dg-line: #4a4a4a;
+}
+
+.dg-node {
+    fill: var(--dg-node);
+    stroke: var(--dg-stroke);
+}
+
+.dg-node-accent {
+    fill: var(--dg-accent-soft);
+    stroke: var(--dg-accent);
+}
+
+.dg-title {
+    fill: var(--dg-text);
+    font-family: 'AnthropicSerif', Georgia, serif;
+    font-weight: 700;
+}
+
+.dg-sub {
+    fill: var(--dg-muted);
+    font-family: monospace;
+}
+
+.dg-line {
+    stroke: var(--dg-line);
+    fill: none;
+}
+
+.dg-line-flow {
+    stroke: var(--dg-accent);
+    fill: none;
+    stroke-dasharray: 5 7;
+    animation: dg-dash 1.1s linear infinite;
+}
+
+@keyframes dg-dash {
+    to {
+        stroke-dashoffset: -24;
+    }
+}
+
+.dg-packet {
+    fill: var(--dg-accent);
+}
+
+.dg-danger {
+    stroke: var(--dg-danger);
+    fill: none;
+    stroke-dasharray: 4 4;
+}
+
+.dg-danger-text {
+    fill: var(--dg-danger);
+    font-family: monospace;
+}
+
+.dg-badge {
+    fill: var(--dg-accent);
+    font-family: monospace;
+    font-weight: 700;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .dg-line-flow {
+        animation: none;
+    }
+
+    .dg-packet {
+        display: none;
+    }
+}
+
+@media (max-width: 620px) {
+    .spec-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .metric-row {
+        grid-template-columns: repeat(2, 1fr);
     }
 }

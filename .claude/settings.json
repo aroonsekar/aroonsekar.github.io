@@ -10,7 +10,9 @@
       "WebFetch(domain:www.tandfonline.com)",
       "WebFetch(domain:doi.org)",
       "WebFetch(domain:shellsharks.com)",
-      "Bash(node -e ' *)"
+      "Bash(node -e ' *)",
+      "Bash(node --check dots.js)",
+      "Bash(node --check script.js)"
     ]
   }
 }
