@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
+    <title>URL shortener| Arun Sekar</title>
+    <style>
+        /* Scoped to this post — a raw, timestamped build log. */
+        .buildlog {
+            margin: 2.2em 0 0;
+            border-left: 1px solid #e6e6e6;
+        }
+
+        body.night-mode .buildlog {
+            border-left-color: #343434;
+        }
+
+        .log-entry {
+            position: relative;
+            padding: 0 0 2em 1.7em;
+        }
+
+        .log-entry::before {
+            content: "";
+            position: absolute;
+            left: -4.5px;
+            top: 0.5em;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #12a594;
+        }
+
+        body.night-mode .log-entry::before {
+            background: #4ecdc4;
+        }
+
+        .log-time {
+            display: block;
+            font-family: monospace;
+            font-size: 0.74rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #12a594;
+            margin-bottom: 0.5em;
+        }
+
+        body.night-mode .log-time {
+            color: #4ecdc4;
+        }
+
+        .log-entry p {
+            margin: 0 0 0.9em;
+        }
+
+        .log-entry p:last-child {
+            margin-bottom: 0;
+        }
+
+        .log-entry ol {
+            margin: 0.2em 0 0;
+            padding-left: 1.2em;
+        }
+
+        .log-entry ol li {
+            margin-bottom: 0.35em;
+        }
+
+        /* the two breaks in the notes */
+        .log-break {
+            position: relative;
+            padding: 0 0 2em 1.7em;
+        }
+
+        .log-break::before {
+            content: "";
+            position: absolute;
+            left: -3.5px;
+            top: 0.45em;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #cfcfcf;
+        }
+
+        body.night-mode .log-break::before {
+            background: #4a4a4a;
+        }
+
+        .log-break span {
+            font-family: monospace;
+            font-size: 0.78rem;
+            color: #999;
+            letter-spacing: 0.04em;
+        }
+
+        body.night-mode .log-break span {
+            color: #7d7d7d;
+        }
+
+        .raw-note {
+            font-family: monospace;
+            font-size: 0.76rem;
+            line-height: 1.6;
+            color: #888;
+            border: 1px dashed #ddd;
+            border-radius: 8px;
+            padding: 0.9em 1.1em;
+            margin: 1.8em 0 0;
+        }
+
+        body.night-mode .raw-note {
+            color: #8d8d8d;
+            border-color: #3a3a3a;
+        }
+
+        @media (max-width: 600px) {
+
+            .log-entry,
+            .log-break {
+                padding-left: 1.3em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="contact-info">
+            <a href="../index.html" class="contact-link">← Home</a> |
+            <a href="index.html" class="contact-link">Writing</a> |
+            <a href="https://www.linkedin.com/in/arunkumarsekar/" class="contact-link">LinkedIn</a> |
+            <a href="../assets/Arun_CV.pdf" class="contact-link">Resume</a>
+        </div>
+        <div>
+            <button id="night-mode-toggle">I am Batman</button>
+        </div>
+    </header>
+
+    <main>
+        <div class="blog-container">
+
+            <div class="post-header">
+                <h1 class="post-title">URL shortener with nextwork's guide</h1>
+                <p class="post-subtitle">following are the notes i wrote as i did the project</p>
+                <div class="post-meta">
+                    <span class="post-date">07 Sep 2026</span>
+                    <span class="post-meta-sep">·</span>
+                    <span class="post-read-time">5 min read</span>
+                </div>
+            </div>
+
+            <div class="post-body">
+
+                <p class="post-lead">I worked through NextWork's URL shortener project and took notes in a file as I
+                    went. Rather than turn those into a tidy tutorial, I'm publishing them as they were written.</p>
+
+                <div class="stack-row">
+                    <span class="stack-chip">Python · Flask</span>
+                    <span class="stack-chip">PostgreSQL</span>
+                    <span class="stack-chip">Redis</span>
+                    <span class="stack-chip">Docker Compose</span>
+                    <span class="stack-chip">Base62</span>
+                </div>
+
+                <p style="margin-top:1.4em;">The code is on GitHub: <a href="https://github.com/aroonsekar/url-shortner"
+                        class="contact-link">aroonsekar/url-shortner</a>. The guide I followed is
+                    <a href="https://nextwork.ai/projects/02a35a5b-1d8b-43ee-9982-6ceef44145e5"
+                        class="contact-link">NextWork's URL shortener project</a>.
+                </p>
+
+                <span class="section-kicker">notes</span>
+
+                <div class="buildlog">
+
+                    <div class="log-entry">
+                        <span class="log-time">12:02 pm</span>
+                        <p>Creating a URL-Shortner following instructions from Nextwork.</p>
+                        <p>First starting with a brief intro about what a url shortner, why to use it and what is the
+                            system design behind it.</p>
+                        <p>Then choices of stack, Python Flask Api , PostgreSQL, Redis cache, Docker, .</p>
+                        <p>Seems like Python Flask API is used as both server as well as an API layer depending on how
+                            we use it. Like when I write it in the code, its basically an API layer(when we look at the
+                            code its like we mention how the data is handled etc.. ) and when we look at the
+                            architecture of the application/ program, it acts as a server listening to the network
+                            ports</p>
+                        <p>Redis, basically as a cache to store hot data, for fast lookups and all and PostgreSQL, the
+                            database for persistent storage.</p>
+                        <p>So the architecture was like User first create the short URL, which is stored in the PostGre
+                            db as original url with short url. when user tries to access the short URL, first the query
+                            is sent to redis cache and checked if the URL exists in the cache so we can serve it
+                            immediately, like quickly (fast lookup), if not the URL will be checked in Postgres and then
+                            given to the user(it'll be slow compared to the serve by redis), also once served, I think
+                            we'll store that in redis, in case if the user again access it we can give it to them
+                            quicky.</p>
+                    </div>
+
+                    <div class="log-entry">
+                        <span class="log-time">12:21 pm</span>
+                        <p>1. The guide asked to setup the environment, like terminal, folder setup, docker installation
+                            and cursor installation. I already created the folders, already have docker sorted and
+                            instead of cursor, I'll be using Antigravity as I have been using it for almost a year now
+                            ?..since it released.</p>
+                    </div>
+
+                    <div class="log-entry">
+                        <span class="log-time">12:27 pm</span>
+                        <p>It is actually a really really good guide for a beginner, Setting up the environment, asking
+                            questions, giving out ways to check if the stack is installed properly, like verifying the
+                            docker version, verifying the path of the folder. Amaze!</p>
+                    </div>
+
+                    <div class="log-entry">
+                        <span class="log-time">12:29 pm</span>
+                        <p>But can we do it only with cursor ? ..for a beginner you give them a proper guide thats
+                            brilliant, but I prefer Antigravity, 2 reasons,1. It's literally the same, 2. I have already
+                            got everything setup, 3. Im lazy.</p>
+                    </div>
+
+                    <div class="log-entry">
+                        <span class="log-time">12:32 pm</span>
+                        <p>So, I have successfully developed and deployed 4 mobile apps (8, 4 in app store, 4 in
+                            playstore), but it was all self taught and I wouldnt say im confident enough and my
+                            techincal vocab isnt strong enough to say or explain the things I wanted to, in the way I
+                            actually intent to. This Course..course? or a guide..whatever is helping me with that.</p>
+                    </div>
+
+                    <div class="log-entry">
+                        <span class="log-time">12: 34 pm</span>
+                        <p>We're dont with setting up the environment and tools, next up is creating the infra for the
+                            multi-service achitecture(multiple independent, tiny service, all coordinating for the main
+                            program.)</p>
+                    </div>
+
+                    <div class="log-entry">
+                        <span class="log-time">12:36 pm</span>
+                        <p>so they are giving out prompts that I should paste in the chat of the IDE, cursor with Auto
+                            model selection thhey said, I have a better one, Claude code xD.</p>
+                        <p>First building the docker-compose.yml.(I already work with docker, CI/CD for the mobile app
+                            backend.)</p>
+                    </div>
+
+                    <div class="log-entry">
+                        <span class="log-time">12:40 pm,</span>
+                        <p>The document also give the contents for the docker-compose.yml.</p>
+                    </div>
+
+                    <div class="log-entry">
+                        <span class="log-time">12:41 pm</span>
+                        <p>The guide though, it asks for screenshots as we complete some main steps..I cant be
+                            bothered..</p>
+                    </div>
+
+                    <div class="log-entry">
+                        <span class="log-time">12:43 pm</span>
+                        <p>It's been a while since I have worked or even used EdTech apps, but this is good.</p>
+                    </div>
+
+                    <div class="log-entry">
+                        <span class="log-time">12:45 pm</span>
+                        <p>Next the requirements file with specific versions of flask, redis and postgre</p>
+                    </div>
+
+                    <div class="log-entry">
+                        <span class="log-time">12:47 pm</span>
+                        <p>A dockerfile inside app to spin up the container with the reqirements</p>
+                    </div>
+
+                    <div class="log-entry">
+                        <span class="log-time">12: 48 pm</span>
+                        <p>init.sql to create table if it doesnt exist. it has id, original_url and the timestamp..</p>
+                        <p>why SQL over noSQL, first of all its structured..like proper structure, then we need ACID,
+                            atomicity(all or nothing), consistency, isolation of data and durabilty. also auto increase
+                            the ids with base62 encoding</p>
+                    </div>
+
+                    <div class="log-entry">
+                        <span class="log-time">12:56</span>
+                        <p>Took a little side turn, explored about base62, base64, conversions from base 10 to 62 vice
+                            versa ..interesting..</p>
+                    </div>
+
+                    <div class="log-entry">
+                        <span class="log-time">12:58 pm</span>
+                        <p>Now before wbuilding the URL shortner logic, just verfitying the docker compose config..</p>
+                    </div>
+
+                    <div class="log-break">
+                        <span>------ took a break! ------</span>
+                    </div>
+
+                    <div class="log-entry">
+                        <span class="log-time">13:23</span>
+                        <p>copy pasting the logics to setup the db, redis, base62, functions to connect to db, shorten
+                            the URl,redirect th url, encode, decode, and a quick health check endpoint.</p>
+                    </div>
+
+                    <div class="log-break">
+                        <span>------ Distracted for a while ------</span>
+                    </div>
+
+                    <div class="log-entry">
+                        <span class="log-time">14:06</span>
+                        <p>So everything is done now. Im doing a list of tests.</p>
+                        <ol>
+                            <li>to see if docker is up</li>
+                            <li>checking status of each service</li>
+                            <li>then curling the health endpoints</li>
+                            <li>adding values in db via curl</li>
+                            <li>then checking docker logs to see the endpoints hit, caching stats</li>
+                            <li>then clearing redis cache</li>
+                            <li>checking the status</li>
+                            <li>again seeding the data and checking the logs</li>
+                        </ol>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="post-tags">
+                <span class="post-tag">#buildlog</span>
+                <span class="post-tag">#docker</span>
+                <span class="post-tag">#redis</span>
+                <span class="post-tag">#postgres</span>
+                <span class="post-tag">#flask</span>
+            </div>
+
+            <div class="post-nav">
+                <a href="index.html" class="contact-link post-nav-link">← All posts</a>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p id="page-size">Page Size: Calculating...</p>
+            <p id="created-by">Created by Arun.</p>
+            <p id="current-time"></p>
+        </div>
+    </footer>
+
+    <div id="dark-glow"></div>
+    <div id="light-glow"></div>
+
+    <script src="../script.js"></script>
+</body>
+
+</html>
